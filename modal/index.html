@@ -1,21 +1,23 @@
 <modal: nonvoid>
-  <div x-bind="click: _click" style="{#unless :self.show}display:none{/}">
-    <div data-action="backdrop" class="modal-backdrop"></div>
-    <div class="modal">
-      <div class="modal-header">
-        <button data-action="close" class="close">×</button>
-        <h3>{@title}</h3>
-      </div>
-      <div class="modal-body">
-        {{@content}}
-      </div>
-      <div class="modal-footer">
-        {{#if @close}}
-          <a data-action="close" class="btn">{this}</a>
-        {{/}}
-        {{#if @primary}}
-          <a data-action="primary" class="btn btn-primary">{this}</a>
-        {{/}}
+  <div x-bind="click: _click" data-action="backdrop" class="modal {#if :self.show}in{/}" style="{#if :self.show}display:block;{else}display:none;{/}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button data-action="close" type="button" class="close">&times;</button>
+          <h4 class="modal-title">{{@title}}</h4>
+        </div>
+        <div class="modal-body">
+          {{@content}}
+        </div>
+        <div class="modal-footer">
+          {{#if @close}}
+            <button data-action="close" type="button" class="btn btn-default">{{this}}</button>
+          {{/}}
+          {{#if @primary}}
+            <button data-action="close" type="button" class="btn btn-primary">{{this}}</button>
+          {{/}}
+        </div>
       </div>
     </div>
   </div>
+  {#if :self.show}<div class="modal-backdrop in"></div>{/}

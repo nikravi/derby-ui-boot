@@ -5,9 +5,11 @@
   "homepage": "http://derbyjs.com/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codeparty/derby-ui-boot.git"
+    "url": "git://github.com/nikravi/derby-ui-boot.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "~3.0.2"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
