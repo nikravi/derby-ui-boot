@@ -3,7 +3,15 @@
   <div class="btn-group dropdown {#if :self.open}open{/}">
     <!-- x-as can be used to pass a reference to an element to the script -->
     <a x-as="toggle" x-bind="click: toggle" class="btn btn-default {@btnClass} dropdown-toggle">
-      <span>{unescaped :self.label}</span> {#if not(@hideCaret)} <span class="caret"></span>{/}
+
+        {#if @currentLang}
+        <i class="vigicon lang-icon vigicon-{@currentLang}"></i>
+        {else}
+        <span>{:self.label}</span>
+        {/}
+
+
+       {#if not(@hideCaret)} <span class="caret"></span>{/}
     </a>
     <menu x-as="menu" class="dropdown-menu">
       {#each @options}
